@@ -59,11 +59,11 @@ endif
 " |g:loremipsum_paragraph_template| (in case you want to change 
 " PREFIX and POSTFIX). If it is _, use no paragraph template.
 " If PREFIX is _, don't use markers.
-command! -bang -nargs=* Loremipsum call loremipsum#Insert("<bang>", <f-args>)
+command! -bang -nargs=* Mysticipsum call loremipsum#Insert("<bang>", <f-args>)
 
 " Replace loremipsum text with something else. Or simply remove it.
 " :display: :Loreplace [REPLACEMENT] [PREFIX] [POSTFIX]
-command! -nargs=* Loreplace call loremipsum#Replace(<f-args>)
+command! -nargs=* Mystplace call loremipsum#Replace(<f-args>)
 
 
 let &cpo = s:save_cpo
