@@ -14,7 +14,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 " http://www.lorem-ipsum-dolor-sit-amet.com/lorem-ipsum-dolor-sit-amet.html
-let s:data = expand('<sfile>:p:h') .'/loremipsum.txt'
+let s:data = expand('<sfile>:p:h') .'/mysticipsum.txt'
 
 
 function! s:GetWords(nwords, splitrx, join) "{{{3
