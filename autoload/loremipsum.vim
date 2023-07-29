@@ -85,41 +85,41 @@ let s:data = expand('<sfile>:p:h') .'/mysticipsum.txt'
 " endf
 
 
-" " :display: loremipsum#Insert(?inline=0, ?nwords=100, " ?template='', ?pre='', ?post='')
-" function! loremipsum#Insert(...) "{{{3
-"     let inline = a:0 >= 1 ? !empty(a:1) : 0
-"     let nwords = a:0 >= 2 ? a:2 : g:loremipsum_words
-"     let template = a:0 >= 3 ? a:3 : ''
-"     if a:0 >= 5
-"         let marker = [a:4, a:5]
-"     elseif a:0 >= 4
-"         if a:4 == '_'
-"             let marker = []
-"         else
-"             echoerr 'Loremipsum: No postfix defined'
-"         endif
-"     else
-"         let marker = get(g:loremipsum_marker, &filetype, [])
-"     endif
-"     " TLogVAR inline, nwords, template
-"     if inline
-"         let t = @t
-"         try
-"             let @t = s:WrapMarker(marker, loremipsum#GenerateInline(nwords))
-"             norm! "tp
-"         finally
-"             let @t = t
-"         endtry
-"     else
-"         let text = s:WrapMarker(marker, loremipsum#Generate(nwords, template))
-"         let lno  = line('.')
-"         if getline(lno) !~ '\S'
-"             let lno -= 1
-"         endif
-"         call append(lno, text)
-"         exec 'norm! '. lno .'gggq'. len(text) ."j"
-"     endif
-" endf
+" :display: loremipsum#Insert(?inline=0, ?nwords=100, " ?template='', ?pre='', ?post='')
+function! loremipsum#Insert(...) "{{{3
+    let inline = a:0 >= 1 ? !empty(a:1) : 0
+    let nwords = a:0 >= 2 ? a:2 : g:loremipsum_words
+    let template = a:0 >= 3 ? a:3 : ''
+    if a:0 >= 5
+        let marker = [a:4, a:5]
+    elseif a:0 >= 4
+        if a:4 == '_'
+            let marker = []
+        else
+            echoerr 'Loremipsum: No postfix defined'
+        endif
+    else
+        let marker = get(g:loremipsum_marker, &filetype, [])
+    endif
+    " TLogVAR inline, nwords, template
+    if inline
+        let t = @t
+        try
+            let @t = s:WrapMarker(marker, loremipsum#GenerateInline(nwords))
+            norm! "tp
+        finally
+            let @t = t
+        endtry
+    else
+        let text = s:WrapMarker(marker, loremipsum#Generate(nwords, template))
+        let lno  = line('.')
+        if getline(lno) !~ '\S'
+            let lno -= 1
+        endif
+        call append(lno, text)
+        exec 'norm! '. lno .'gggq'. len(text) ."j"
+    endif
+endf
 
 
 " function! loremipsum#Replace(...) "{{{3
