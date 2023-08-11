@@ -1,3 +1,7 @@
+This is a fork of the loremipsum vimscript.
+It is only modified to output AI generated mystical text instead of utter gobberish.
+-------------------------------------
+
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=2289
 
 Insert a dummy text of a certain length. Actually, the text isn't 
